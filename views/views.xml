@@ -1,0 +1,143 @@
+<odoo>
+  <data>
+ <menuitem name="Configuration RH" 
+    id="menu_configuration_rh"
+    action="hr.hr_config_settings_action"
+    sequence="1" 
+    groups="base.group_user" 
+    web_icon="configuration_rh,static/description/icon.png"/>
+<!-- configuration -->
+    <menuitem name="Poste Occupés" id="menu_poste_occupes_config" action="hr.action_hr_job"  parent="menu_configuration_rh" sequence="2" />
+    <menuitem name="Employés" id="menu_employes_config" parent="menu_configuration_rh" sequence="4" />
+    <menuitem name="Étiquettes" id="menu_etiquetes_config" action="hr.open_view_categ_form"  parent="menu_employes_config" />
+    <menuitem name="Congés" id="menu_conges_config" parent="menu_configuration_rh" sequence="5" />
+    <menuitem name="Type de congés" id="menu_types_congés_config" action="hr_holidays.open_view_holiday_status"  parent="menu_conges_config" sequence="1" />
+    <menuitem name="Régions" id="menu_régions_config" action="egov_rh_ma.open_module_region"  parent="menu_conges_config" sequence="2" />
+    <menuitem name="Ville" id="menu_villes_config" action="egov_rh_ma.open_module_ville"  parent="menu_conges_config" sequence="3" />
+    <menuitem name="Types Zones" id="menu_types_zones_config" action="egov_rh_ma.open_module_zone2"  parent="menu_conges_config" sequence="4" />
+    <menuitem name="Zones" id="menu_zones_config" action="egov_rh_ma.open_module_tree_zone_holidays"  parent="menu_conges_config" sequence="5" />
+    <menuitem name="Année d’augmentation" id="menu_augmentation_config" action="account.actions_account_fiscal_year"  parent="menu_conges_config" sequence="6" />
+    <menuitem name="Congés par employé" id="menu_conges_par_employe_config" action="egov_rh_ma.action_hr_holidays_extended_show_hr_holidays_employee"  parent="menu_conges_config" sequence="7" />
+                                                    <!-- V14 -->
+    <!-- <menuitem name="Départements" id="menu_departments_config" action="hr.hr_department_tree_action"  parent="menu_configuration_rh" sequence="5" /> -->
+                                                    <!-- V13 -->
+    <menuitem name="Départements" id="menu_departments_config" action="hr.open_module_tree_department"  parent="menu_configuration_rh" sequence="5" />
+    <menuitem name="Niveau d'enseignement" id="menu_niveau_enseignement_config" action="egov_rh_ma.open_module_tree_education"  parent="menu_configuration_rh" sequence="6" />
+    <menuitem name="Plan d'évaluation" id="menu_plan_evaluation_config" action="egov_rh_ma.action_hr_notes_plan"  parent="menu_configuration_rh" sequence="7" />
+    <menuitem name="Affectation/Mouvement" id="menu_affectation_mouvement_config" parent="menu_configuration_rh" sequence="8" />
+    <menuitem name="Decision" id="menu_decision_config" action="egov_rh_ma.open_module_tree_decision"  parent="menu_affectation_mouvement_config" sequence="1" />
+    <menuitem name="Stages" id="menu_stades_config" action="egov_rh_ma.open_module_tree_stage"  parent="menu_affectation_mouvement_config" sequence="2" />
+    <menuitem name="Evolutions" id="menu_evolution_config" parent="menu_configuration_rh" sequence="9" />
+    <menuitem name="Corps" id="menu_corps_config" action="egov_rh_ma.open_module_tree_corps"  parent="menu_evolution_config" sequence="1" />
+    <menuitem name="Grades" id="menu_grade_config" action="egov_rh_ma.open_module_tree_grade"  parent="menu_evolution_config" sequence="2" />
+    <menuitem name="Echelons" id="menu_echellon_config" action="egov_rh_ma.open_module_tree_echelon"  parent="menu_evolution_config" sequence="3" />
+    <menuitem name="Echelle" id="menu_echelle_config" action="egov_rh_ma.open_module_tree_echelle"  parent="menu_evolution_config" sequence="4" />
+    <menuitem name="Exercice d'évolution" id="menu_exercice_evolution_config" action="egov_rh_ma.open_module_tree_date_avancement"  parent="menu_evolution_config" sequence="5" />
+    <menuitem name="Planning d'activités" id="menu_planning_activités_config" parent="menu_configuration_rh" sequence="10" />
+    <menuitem name="Planning Types" id="menu_planning_types_config" action="hr.hr_plan_activity_type_action"  parent="menu_planning_activités_config" sequence="1" />
+    <menuitem name="Plans" id="menu_plans_config" action="hr.hr_plan_action"  parent="menu_planning_activités_config" sequence="2" />
+    <menuitem name="Concours" id="menu_concours_config" parent="menu_configuration_rh" sequence="10" />
+    <menuitem name="Badges" id="menu_badges_config" action="gamification.badge_list_action"  parent="menu_concours_config" sequence="1" />
+    <menuitem name="Concours" id="menu_Concours_config" action="hr_gamification.challenge_list_action2"  parent="menu_concours_config" sequence="2" />
+    <menuitem name="Historiques des objectifs" id="menu_historiques_objectif_config" action="hr_gamification.goals_menu_groupby_action2"  parent="menu_concours_config" sequence="3" />
+    <delete model="ir.ui.menu" id="hr.menu_human_resources_configuration"></delete>
+    <delete model="ir.ui.menu" id="hr.hr_menu_configuration"></delete>
+    <delete model="ir.ui.menu" id="hr.menu_view_hr_job"></delete>
+    <delete model="ir.ui.menu" id="hr.menu_human_resources_configuration_employee"></delete>
+    <delete model="ir.ui.menu" id="egov_rh_ma.menu_hr_zone_holidays1"></delete>
+    <delete model="ir.ui.menu" id="hr.menu_hr_department_tree"></delete>
+    <delete model="ir.ui.menu" id="egov_rh_ma.menu_hr_education_tree"></delete>
+    <delete model="ir.ui.menu" id="egov_rh_ma.menu_action_hr_notes_plan"></delete>
+    <delete model="ir.ui.menu" id="hr.menu_affectation_req_main"></delete>
+    <delete model="ir.ui.menu" id="hr.menu_evolution_req_main"></delete>
+    <delete model="ir.ui.menu" id="hr.menu_config_plan"></delete>
+    <delete model="ir.ui.menu" id="hr_gamification.gamification_challenge_menu_hr"></delete>
+	  <delete model="ir.ui.menu" id="hr_holidays.menu_open_view_holiday_status"></delete>
+ 	  <delete model="ir.ui.menu" id="hr.menu_view_employee_category_form"></delete>
+ 	  <delete model="ir.ui.menu" id="egov_rh_ma.menu_hr_decision_tree"></delete>
+ 	  <delete model="ir.ui.menu" id="egov_rh_ma.menu_hr_stage_tree"></delete>
+ 	  <delete model="ir.ui.menu" id="egov_rh_ma.menu_hr_region_holidays_tree20"></delete>
+ 	  <delete model="ir.ui.menu" id="egov_rh_ma.menu_hr_ville_holidays_tree20"></delete>
+ 	  <delete model="ir.ui.menu" id="egov_rh_ma.menu_hr_zone_holidays_tree20"></delete>
+ 	  <delete model="ir.ui.menu" id="egov_rh_ma.menu_hr_zone_holidays_tree"></delete>
+ 	  <delete model="ir.ui.menu" id="egov_rh_ma.menu_hr_corps_tree"></delete>
+ 	  <delete model="ir.ui.menu" id="egov_rh_ma.menu_hr_grade_tree"></delete>
+ 	  <delete model="ir.ui.menu" id="egov_rh_ma.menu_hr_echelon_tree"></delete>
+ 	  <delete model="ir.ui.menu" id="egov_rh_ma.menu_hr_echelle_tree"></delete>
+ 	  <delete model="ir.ui.menu" id="egov_rh_ma.menu_hr_date_avancement_tree"></delete>
+ 	  <delete model="ir.ui.menu" id="egov_rh_ma.menu_hr_holidays_extended_show_hr_holidays_employee"></delete>
+ 	  <delete model="ir.ui.menu" id="hr.menu_config_plan_types"></delete>
+ 	  <delete model="ir.ui.menu" id="hr.menu_config_plan_plan"></delete>
+ 	  <delete model="ir.ui.menu" id="hr_gamification.menu_hr_gamification"></delete>
+ 	  <delete model="ir.ui.menu" id="egov_rh_ma.menu_action_account_fiscalyear_hr"></delete>
+ 	  <delete model="ir.ui.menu" id="egov_rh_ma.menu_hr_grade_tree"></delete>
+ 	  <delete model="ir.ui.menu" id="egov_rh_ma.menu_hr_echelon_tree"></delete>
+ 	  <delete model="ir.ui.menu" id="egov_rh_ma.menu_hr_echelle_tree"></delete>
+ 	  <delete model="ir.ui.menu" id="egov_rh_ma.menu_hr_date_avancement_tree"></delete>
+ 	  <delete model="ir.ui.menu" id="egov_rh_ma.menu_action_account_fiscalyear_hr"></delete>
+ 	  <delete model="ir.ui.menu" id="hr.menu_config_plan_types"></delete>
+ 	  <delete model="ir.ui.menu" id="hr.menu_config_plan_plan"></delete>
+ 	  <delete model="ir.ui.menu" id="hr_gamification.menu_hr_gamification"></delete>
+ 	  <delete model="ir.ui.menu" id="egov_rh_ma.menu_hr_echelle_tree"></delete>
+ 	  <delete model="ir.ui.menu" id="hr_gamification.gamification_badge_menu_hr"></delete>
+ 	  <delete model="ir.ui.menu" id="hr_gamification.gamification_goal_menu_hr"></delete>
+ 	  <delete model="ir.ui.menu" id="hr_gamification.gamification_badge_menu_hr"></delete>
+<!-- congés -->
+    <record model="ir.ui.menu" id="hr_holidays.menu_hr_holidays_configuration">
+      <field name="sequence">7</field>
+    </record>
+
+    <menuitem name="Calendrier des Jours férié" id="menu_calendrier_jours_ferie" sequence="4" parent="hr_holidays.menu_hr_holidays_root" action="egov_rh_ma.action_view_holidays_calendar_events2" groups="hr.group_hr_user,egov_rh_ma.group_hr_manager_egov_rh_ma" />
+    <menuitem name="Jours fériés" id="menu_jours_ferie" sequence="5" parent="hr_holidays.menu_hr_holidays_root" action="egov_rh_ma.action_view_holidays_list_events2"/>
+    <menuitem name="Analyse des congés Ouvrable" id="menu_conges_ouvrables_ferie" sequence="6" parent="hr_holidays.menu_hr_holidays_root" action="egov_rh_ma.open_company_allocation2"/>
+ 	  <delete model="ir.ui.menu" id="egov_rh_ma.menu_holiday_calendar2"></delete>
+ 	  <delete model="ir.ui.menu" id="egov_rh_ma.menu_holiday_list2"></delete>
+ 	  <delete model="ir.ui.menu" id="egov_rh_ma.menu_open_company_allocation2"></delete>
+ 	  <delete model="ir.ui.menu" id="egov_rh_ma.menu_open_company_allocation_nonouvrable"></delete>
+ 	  <delete model="ir.ui.menu" id="egov_rh_ma.menu_open_ask_holidays_new_secraitaire"></delete>
+ 	  <delete model="ir.ui.menu" id="hr_holidays.menu_open_ask_holidays"></delete>
+    <delete model="ir.ui.menu" id="hr_holidays.menu_open_ask_holidays_new"></delete>
+	
+    <record id="view_conge_employe_inherit" model="ir.ui.view">
+                        <field name="name">conge.employe.inherit</field>
+                        <field name="model">hr.holidays.employee</field>
+                        <field name="inherit_id" ref="egov_rh_ma.view_hr_holidays_extended_hr_holidays_employee_form"/>
+                        <field name="arch" type="xml">      
+                            <xpath expr="//field[@name='base_holidays2']" position="attributes">
+                                    <attribute name="invisible">1</attribute>
+                            </xpath>
+                            <xpath expr="//field[@name='pending_prev_year_holidays2']" position="attributes">
+                                    <attribute name="invisible">1</attribute>
+                            </xpath>
+                            <xpath expr="//field[@name='augmentation_nouvelle_recrue2']" position="attributes">
+                                    <attribute name="invisible">1</attribute>
+                            </xpath>
+                            <xpath expr="//field[@name='augmentation_retraite2']" position="attributes">
+                                    <attribute name="invisible">1</attribute>
+                            </xpath>
+                            <xpath expr="//field[@name='augmentation_non_ouv_affectation']" position="attributes">
+                                    <attribute name="invisible">1</attribute>
+                            </xpath>
+                            <xpath expr="//field[@name='reliquat_non_initial']" position="attributes">
+                                    <attribute name="invisible">1</attribute>
+                            </xpath>
+                            <xpath expr="//field[@name='reliquat_non_attribution']" position="attributes">
+                                    <attribute name="invisible">1</attribute>
+                            </xpath>
+                            <xpath expr="//field[@name='base_holidays2_ok']" position="attributes">
+                                    <attribute name="invisible">1</attribute>
+                            </xpath>
+                            <xpath expr="//field[@name='available_holidays2']" position="attributes">
+                                    <attribute name="invisible">1</attribute>
+                            </xpath>
+                            <xpath expr="//field[@name='pris_holidays2']" position="attributes">
+                                    <attribute name="invisible">1</attribute>
+                            </xpath>
+                            <xpath expr="//field[@name='pris_holidays2']" position="attributes">
+                                    <attribute name="invisible">1</attribute>
+                            </xpath>
+                        </field>
+    </record>
+  
+  </data> 
+</odoo>
