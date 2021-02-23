@@ -82,6 +82,7 @@
  	  <delete model="ir.ui.menu" id="hr_gamification.gamification_badge_menu_hr"></delete>
  	  <delete model="ir.ui.menu" id="hr_gamification.gamification_goal_menu_hr"></delete>
  	  <delete model="ir.ui.menu" id="hr_gamification.gamification_badge_menu_hr"></delete>
+        <delete model="ir.ui.menu" id="egov_rh_ma.menu_open_view_employee_list_my_all"></delete>
 <!-- congés -->
     <record model="ir.ui.menu" id="hr_holidays.menu_hr_holidays_configuration">
       <field name="sequence">7</field>
@@ -136,8 +137,54 @@
                             <xpath expr="//field[@name='pris_holidays2']" position="attributes">
                                     <attribute name="invisible">1</attribute>
                             </xpath>
+                           
                         </field>
     </record>
-  
+
+        <record id="view_employee_arab_inherit" model="ir.ui.view">
+                <field name="name">employee.arab.form.inherit</field>
+                <field name="model">hr.employee</field>
+                <field name="inherit_id" ref="hr.view_employee_form"/>
+                <field name="arch" type="xml">
+                    <xpath expr="//field[@name='name']" position="after">
+                        <field name="nom_arab" placeholder="الاسم الكامل"/>
+                    </xpath>
+                    <xpath expr="//field[@name='echelon_id']" position="after">
+                        <field name="echelle_id" />
+                    </xpath>
+                </field>
+        </record>
+	
+        <record id="view_unite_arabe_inherit" model="ir.ui.view">
+                <field name="name">unite.arab.form.inherit</field>
+                <field name="model">hr.department</field>
+                <field name="inherit_id" ref="hr.view_department_form"/>
+                <field name="arch" type="xml">
+                    <xpath expr="//field[@name='type']" position="after">
+                        <field name="department_arab"/>
+                    </xpath>
+                </field>
+        </record>
+  <!-- Recrutement -->
+
+          <record id="view_nouvel_recrutement_inherit" model="ir.ui.view">
+                <field name="name">nouvel.recrutement.form.inherit</field>
+                <field name="model">egov_rh_ma.recrutement</field>
+                <field name="inherit_id" ref="egov_rh_ma.view_recrutement_form"/>
+                <field name="arch" type="xml">
+                    <xpath expr="//field[@name='zone_id2']" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                    </xpath>
+                    <xpath expr="//field[@name='typezone_id2']" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                    </xpath>
+                    <xpath expr="//field[@name='user_id']" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                    </xpath>
+                </field>
+        </record>
+        
+        
+
   </data> 
 </odoo>
