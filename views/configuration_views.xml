@@ -33,6 +33,15 @@
     <menuitem name="Echelle" id="menu_echelle_config" action="egov_rh_ma.open_module_tree_echelle"  parent="menu_evolution_config" sequence="4" />
     <menuitem name="Exercice d'évolution" id="menu_exercice_evolution_config" action="egov_rh_ma.open_module_tree_date_avancement"  parent="menu_evolution_config" sequence="5" />
     <menuitem name="Plan d'évaluation" id="menu_plan_evaluation_config" action="egov_rh_ma.action_hr_notes_plan"  parent="menu_evolution_config" sequence="6" />
+    <menuitem name="Recrutement" id="menu_recrutement_config" parent="menu_configuration_rh" sequence="10" />
+    <menuitem id="menu_configuration_recrutement_portail" parent="menu_recrutement_config" name="Configuration"  sequence="1" action="hr_recruitment.action_hr_recruitment_configuration" groups="base.group_user"/>
+      <menuitem id="menu_etape_recrutement_portail" parent="menu_recrutement_config" name="Étapes"  sequence="2" action="hr_recruitment.hr_recruitment_stage_act" groups="base.group_user"/>
+      <menuitem id="menu_etiquete_recrutement_portail" parent="menu_recrutement_config" name="Étiquettes"  sequence="3" action="hr_recruitment.hr_applicant_category_action" groups="base.group_user"/>
+      <menuitem id="menu_diplome_recrutement_portail" parent="menu_recrutement_config" name="Diplômes"  sequence="4" action="hr_recruitment.hr_recruitment_degree_action" groups="base.group_user"/>
+      <menuitem id="menu_postes_recrutement_portail" parent="menu_recrutement_config" name="Postes"  sequence="5" action="hr_recruitment.action_hr_job_config" groups="base.group_user"/>
+      <menuitem id="menu_origin_candidature_recrutement_portail" parent="menu_recrutement_config" name="Origines des candidats"  sequence="6" action="hr_recruitment.hr_recruitment_source_action" groups="base.group_user"/>
+      <menuitem id="menu_departements_recrutement_portail" parent="menu_recrutement_config" name="Départements"  sequence="7" action="hr_recruitment.action_hr_department" groups="base.group_user"/>
+      <menuitem id="menu_type_activite_recrutement_portail" parent="menu_recrutement_config" name="Types d'activités"  sequence="8" action="hr_recruitment.mail_activity_type_action_config_hr_applicant" groups="base.group_user"/>
     <!-- <menuitem name="Planning d'activités" id="menu_planning_activités_config" parent="menu_configuration_rh" sequence="10" /> -->
     <!-- <menuitem name="Planning Types" id="menu_planning_types_config" action="hr.hr_plan_activity_type_action"  parent="menu_planning_activités_config" sequence="1" /> -->
     <!-- <menuitem name="Plans" id="menu_plans_config" action="hr.hr_plan_action"  parent="menu_planning_activités_config" sequence="2" /> -->
@@ -83,6 +92,19 @@
  	  <delete model="ir.ui.menu" id="hr_gamification.gamification_goal_menu_hr"></delete>
  	  <delete model="ir.ui.menu" id="hr_gamification.gamification_badge_menu_hr"></delete>
         <delete model="ir.ui.menu" id="egov_rh_ma.menu_open_view_employee_list_my_all"></delete>
+
+<!-- employé -->
+
+        <delete model="ir.ui.menu" id="egov_rh_ma.menu_open_view_employee_list_my_fiche3"></delete>
+        
+        <record model="ir.ui.menu" id="hr.menu_hr_main">
+                <field name="name">Operation</field>
+                <field name="sequence">17</field>
+        </record>
+
+        <menuitem name="Ma fiche" id="menu_ma_fiche_employe" sequence="1" parent="hr.menu_hr_root" action="egov_rh_ma.open_view_employee_list_my_fiche3" />
+
+
 <!-- congés -->
     <record model="ir.ui.menu" id="hr_holidays.menu_hr_holidays_configuration">
       <field name="sequence">7</field>
