@@ -7,10 +7,10 @@
     groups="base.group_user" 
     web_icon="configuration_rh,static/description/icon.png"/>
 <!-- configuration -->
-    <menuitem name="Poste Occupés" id="menu_poste_occupes_config" action="hr.action_hr_job"  parent="menu_configuration_rh" sequence="2" />
-    <menuitem name="Employés" id="menu_employes_config" parent="menu_configuration_rh" sequence="4" />
-    <menuitem name="Étiquettes" id="menu_etiquetes_config" action="hr.open_view_categ_form"  parent="menu_employes_config" />
-    <menuitem name="Congés" id="menu_conges_config" parent="menu_configuration_rh" sequence="5" />
+    <menuitem name="Poste Occupés" id="menu_poste_occupes_config" action="hr.action_hr_job"  parent="menu_employes_config" sequence="2"/>
+    <menuitem name="Employés" id="menu_employes_config" parent="menu_configuration_rh" sequence="4"/>
+    <menuitem name="Étiquettes" id="menu_etiquetes_config" action="hr.open_view_categ_form"  parent="menu_employes_config" sequence="1"/>
+    <menuitem name="Congés" id="menu_conges_config" parent="menu_configuration_rh" sequence="5"/>
     <menuitem name="Type de congés" id="menu_types_congés_config" action="hr_holidays.open_view_holiday_status"  parent="menu_conges_config" sequence="1" />
     <menuitem name="Régions" id="menu_régions_config" action="egov_rh_ma.open_module_region"  parent="menu_conges_config" sequence="2" />
     <menuitem name="Ville" id="menu_villes_config" action="egov_rh_ma.open_module_ville"  parent="menu_conges_config" sequence="3" />
@@ -21,25 +21,25 @@
                                                     <!-- V14 -->
     <!-- <menuitem name="Départements" id="menu_departments_config" action="hr.hr_department_tree_action"  parent="menu_configuration_rh" sequence="5" /> -->
                                                     <!-- V13 -->
-    <menuitem name="Départements" id="menu_departments_config" action="hr.open_module_tree_department"  parent="menu_configuration_rh" sequence="5" />
-    <menuitem name="Niveau d'enseignement" id="menu_niveau_enseignement_config" action="egov_rh_ma.open_module_tree_education"  parent="menu_configuration_rh" sequence="6" />
-    <menuitem name="Plan d'évaluation" id="menu_plan_evaluation_config" action="egov_rh_ma.action_hr_notes_plan"  parent="menu_configuration_rh" sequence="7" />
-    <menuitem name="Affectation/Mouvement" id="menu_affectation_mouvement_config" parent="menu_configuration_rh" sequence="8" />
-    <menuitem name="Decision" id="menu_decision_config" action="egov_rh_ma.open_module_tree_decision"  parent="menu_affectation_mouvement_config" sequence="1" />
-    <menuitem name="Stages" id="menu_stades_config" action="egov_rh_ma.open_module_tree_stage"  parent="menu_affectation_mouvement_config" sequence="2" />
-    <menuitem name="Evolutions" id="menu_evolution_config" parent="menu_configuration_rh" sequence="9" />
+    <menuitem name="Départements" id="menu_departments_config" action="hr.open_module_tree_department"  parent="menu_employes_config" sequence="3" />
+    <menuitem name="Niveau d'enseignement" id="menu_niveau_enseignement_config" action="egov_rh_ma.open_module_tree_education"  parent="menu_employes_config" sequence="4" />
+    <!-- <menuitem name="Affectation/Mouvement" id="menu_affectation_mouvement_config" parent="menu_configuration_rh" sequence="8" /> -->
+    <!-- <menuitem name="Decision" id="menu_decision_config" action="egov_rh_ma.open_module_tree_decision"  parent="menu_affectation_mouvement_config" sequence="1" /> -->
+    <menuitem name="Workflow" id="menu_stades_config" action="egov_rh_ma.open_module_tree_stage"  parent="menu_employes_config" sequence="7" />
+    <menuitem name="Carrière" id="menu_evolution_config" parent="menu_configuration_rh" sequence="9" />
     <menuitem name="Corps" id="menu_corps_config" action="egov_rh_ma.open_module_tree_corps"  parent="menu_evolution_config" sequence="1" />
     <menuitem name="Grades" id="menu_grade_config" action="egov_rh_ma.open_module_tree_grade"  parent="menu_evolution_config" sequence="2" />
     <menuitem name="Echelons" id="menu_echellon_config" action="egov_rh_ma.open_module_tree_echelon"  parent="menu_evolution_config" sequence="3" />
     <menuitem name="Echelle" id="menu_echelle_config" action="egov_rh_ma.open_module_tree_echelle"  parent="menu_evolution_config" sequence="4" />
     <menuitem name="Exercice d'évolution" id="menu_exercice_evolution_config" action="egov_rh_ma.open_module_tree_date_avancement"  parent="menu_evolution_config" sequence="5" />
-    <menuitem name="Planning d'activités" id="menu_planning_activités_config" parent="menu_configuration_rh" sequence="10" />
-    <menuitem name="Planning Types" id="menu_planning_types_config" action="hr.hr_plan_activity_type_action"  parent="menu_planning_activités_config" sequence="1" />
-    <menuitem name="Plans" id="menu_plans_config" action="hr.hr_plan_action"  parent="menu_planning_activités_config" sequence="2" />
-    <menuitem name="Concours" id="menu_concours_config" parent="menu_configuration_rh" sequence="10" />
-    <menuitem name="Badges" id="menu_badges_config" action="gamification.badge_list_action"  parent="menu_concours_config" sequence="1" />
-    <menuitem name="Concours" id="menu_Concours_config" action="hr_gamification.challenge_list_action2"  parent="menu_concours_config" sequence="2" />
-    <menuitem name="Historiques des objectifs" id="menu_historiques_objectif_config" action="hr_gamification.goals_menu_groupby_action2"  parent="menu_concours_config" sequence="3" />
+    <menuitem name="Plan d'évaluation" id="menu_plan_evaluation_config" action="egov_rh_ma.action_hr_notes_plan"  parent="menu_evolution_config" sequence="6" />
+    <!-- <menuitem name="Planning d'activités" id="menu_planning_activités_config" parent="menu_configuration_rh" sequence="10" /> -->
+    <!-- <menuitem name="Planning Types" id="menu_planning_types_config" action="hr.hr_plan_activity_type_action"  parent="menu_planning_activités_config" sequence="1" /> -->
+    <!-- <menuitem name="Plans" id="menu_plans_config" action="hr.hr_plan_action"  parent="menu_planning_activités_config" sequence="2" /> -->
+    <!-- <menuitem name="Concours" id="menu_concours_config" parent="menu_configuration_rh" sequence="10" /> -->
+    <!-- <menuitem name="Badges" id="menu_badges_config" action="gamification.badge_list_action"  parent="menu_concours_config" sequence="1" /> -->
+    <!-- <menuitem name="Concours" id="menu_Concours_config" action="hr_gamification.challenge_list_action2"  parent="menu_concours_config" sequence="2" /> -->
+    <!-- <menuitem name="Historiques des objectifs" id="menu_historiques_objectif_config" action="hr_gamification.goals_menu_groupby_action2"  parent="menu_concours_config" sequence="3" /> -->
     <delete model="ir.ui.menu" id="hr.menu_human_resources_configuration"></delete>
     <delete model="ir.ui.menu" id="hr.hr_menu_configuration"></delete>
     <delete model="ir.ui.menu" id="hr.menu_view_hr_job"></delete>
@@ -87,6 +87,11 @@
     <record model="ir.ui.menu" id="hr_holidays.menu_hr_holidays_configuration">
       <field name="sequence">7</field>
     </record>
+
+    <record model="ir.actions.act_window" id="egov_rh_ma.open_module_tree_stage">
+            <field name="name">Workflow</field>
+      </record>
+
 
     <menuitem name="Calendrier des Jours férié" id="menu_calendrier_jours_ferie" sequence="4" parent="hr_holidays.menu_hr_holidays_root" action="egov_rh_ma.action_view_holidays_calendar_events2" groups="hr.group_hr_user,egov_rh_ma.group_hr_manager_egov_rh_ma" />
     <menuitem name="Jours fériés" id="menu_jours_ferie" sequence="5" parent="hr_holidays.menu_hr_holidays_root" action="egov_rh_ma.action_view_holidays_list_events2"/>
